@@ -1,11 +1,12 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import MainNavigator from './navigation/MainNavigator';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>Welcome to E-Pulse</Text>
       <StatusBar style="auto" />
     </View>
   );
