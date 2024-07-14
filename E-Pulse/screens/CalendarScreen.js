@@ -10,13 +10,26 @@ export default function CalendarScreen() {
 	const [date, setDate] = useState(new Date());
 
 	const scheduleNotification = async (date) => {
-		await Notifications.scheduleNotificationAsync({
-			content: {
-				title: "Reminder!",
-				body: "Your event is starting in a few minutes!",
-			},
-			trigger: {date},
-		});
+		if (!date) {
+			console.warn('Invalid date provided');
+			return;
+		}
+
+		try {
+			await Notifications.scheduleNotificationAsync({
+				content: {
+					title: "Reminder!",
+					body: "Your event is starting in a few minutes!",
+				},
+				trigger: {date},
+			});
+		} catch (error) {
+			if (error instanceof Error) {
+				console.error('Error scheduling notification:', error.message);
+			} else {
+				console.error('Unknown error scheduling notification');
+			}
+		}
 	};
 
 	return (
