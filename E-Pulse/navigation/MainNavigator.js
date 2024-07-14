@@ -9,14 +9,30 @@ import WallpaperScreen from '../screen/WallpaperScreen';
 const Stack = createStackNavigator();
 
 export default function MainNavigator() {
-	return(
-		<NavigationContainer>
-		 <Stack.Navigator initialRouteName="Home">
-		  <Stack.Screen name="Home" component={HomeScreen} />
-		  <Stack.Screen name="Calendar" component={CalendarScreen} />
-		  <Stack.Screen name="Wallpaper" component={WallpaperScreen} />
-		 </Stack.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        {Object.keys(screenNames).map((name) => (
+          <Stack.Screen
+            key={name}
+            name={screenNames[name]}
+            component={screenComponents[name]}
+          />
+        ))}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
+const screenNames = {
+  Home: 'Home',
+  Calendar: 'Calendar',
+  Wallpaper: 'Wallpaper',
+};
+
+const screenComponents = {
+  Home: HomeScreen,
+  Calendar: CalendarScreen,
+  Wallpaper: WallpaperScreen,
+};
 
