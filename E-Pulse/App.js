@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import MainNavigator from './navigation/MainNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
@@ -8,34 +9,53 @@ import CalendarScreen from './screens/CalendarScreen';
 import WallpaperScreen from './screens/WallpaperScreen';
 
 export default function App() {
+  // Check if the MainNavigator component exists before rendering it
+  if (!MainNavigator) {
+    throw new Error('MainNavigator component not found');
+  }
+
+  // Check if the NavigationContainer component exists before rendering it
+  if (!NavigationContainer) {
+    throw new Error('NavigationContainer component not found');
+  }
+
+  // Check if the StatusBar component exists before rendering it
+  if (!StatusBar) {
+    throw new Error('StatusBar component not found');
+  }
+
+  // Check if the Stack.Navigator component exists before rendering it
+  if (!Stack.Navigator) {
+    throw new Error('Stack.Navigator component not found');
+  }
+
+  // Check if the HomeScreen component exists before rendering it
+  if (!HomeScreen) {
+    throw new Error('HomeScreen component not found');
+  }
+
+  // Check if the CalendarScreen component exists before rendering it
+  if (!CalendarScreen) {
+    throw new Error('CalendarScreen component not found');
+  }
+
+  // Check if the WallpaperScreen component exists before rendering it
+  if (!WallpaperScreen) {
+    throw new Error('WallpaperScreen component not found');
+  }
+
   // This is the main component of our app. It renders a View component
   // which is a container for other components.
   // The View component is styled with a flexbox layout, where the
   // content is centered both horizontally and vertically.
   return (
     <View style={styles.container}>
-      {/* The NavigationContainer component is the root of our navigation
-          stack. It is the container for all of our screens. */}
+      <MainNavigator />
       <NavigationContainer>
-        {/* The StatusBar component displays the status bar at the top of
-            the screen. The style="auto" prop makes sure that the status
-            bar is styled correctly on both iOS and Android. */}
         <StatusBar style="auto" />
-        {/* The Stack.Navigator component is the navigator for our app. It
-            renders a stack of screens, where the user can navigate
-            between them. */}
         <Stack.Navigator initialRouteName="Home">
-          {/* This is the first screen in our stack. It is the HomeScreen
-              component, and it is displayed when the user first opens
-              the app. */}
           <Stack.Screen name="Home" component={HomeScreen} />
-          {/* This is the second screen in our stack. It is the
-              CalendarScreen component, and it is displayed when the user
-              navigates to it from the HomeScreen. */}
           <Stack.Screen name="Calendar" component={CalendarScreen} />
-          {/* This is the third screen in our stack. It is the
-              WallpaperScreen component, and it is displayed when the user
-              navigates to it from the HomeScreen. */}
           <Stack.Screen name="Wallpaper" component={WallpaperScreen} />
         </Stack.Navigator>
       </NavigationContainer>
