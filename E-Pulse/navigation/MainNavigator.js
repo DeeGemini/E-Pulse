@@ -2,7 +2,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createAppContainer} from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
 import CalendarScreen from '../screen/CalendarScreen';
 import WallpaperScreen from '../screen/WallpaperScreen';
