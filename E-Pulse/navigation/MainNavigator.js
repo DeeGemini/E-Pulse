@@ -3,8 +3,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
-import CalendarScreen from '../screen/CalendarScreen';
-import WallpaperScreen from '../screen/WallpaperScreen';
+import CalendarScreen from '../screens/CalendarScreen';
+import WallpaperScreen from '../screens/WallpaperScreen';
 
 const Stack = createStackNavigator();
 
