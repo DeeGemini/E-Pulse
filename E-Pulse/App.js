@@ -2,11 +2,6 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import MainNavigator from './navigation/MainNavigator';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import CalendarScreen from './screens/CalendarScreen';
-import WallpaperScreen from './screens/WallpaperScreen';
 
 export default function App() {
   // Check if the MainNavigator component exists before rendering it
